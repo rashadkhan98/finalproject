@@ -1,5 +1,5 @@
 #ifndef PLAYER_H_
-#def PLAYER_H_
+#define PLAYER_H_
 
 class Player{
 		int x;
@@ -7,6 +7,7 @@ class Player{
 		int lives;
 	public:
 		
+		void setFields( int a, int b, int c);
 		// moveCursor: output int int -> text @ cursor posn. 
 		// prints outpus at posn col, row of the terminal. 
 		void moveCursor(int col, int row);
@@ -21,11 +22,11 @@ class Player{
 		
 		// removeLife: Boolean -> int (update player) 
 		// remove a life if it is passed true. 
-		removeLife(bool contact);
+		void removeLife(bool contact);
 		
 		// isAlive?: none -> Boolean
 		// if lives > 0, returns true. else false. 
-		bool isAlive?();
+		bool isAlive();
 
 };
 

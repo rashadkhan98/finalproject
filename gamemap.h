@@ -21,7 +21,7 @@ class GameMap{
 
 	void drawBorders();
 	
-	void drawMap(int i);
+	void drawMap();
 	
 };
 

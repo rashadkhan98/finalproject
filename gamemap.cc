@@ -31,8 +31,8 @@
 		std::cout<<"=-=-=-=-=-=-=-=-=-=";
 	}
 	
-	void GameMap::drawMap(int i){
-		for(int i; i < length; i++){
+	void GameMap::drawMap(){
+		for(int i = 3; i < length; i++){
 			moveCursor( 0, (i % length));
 			if( (i%2 ) == 0 ){
 				std::cout<<"|        |        |";
