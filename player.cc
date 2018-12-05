@@ -34,11 +34,11 @@
 		void Player::updatePos(int sw){
 			switch(sw){
 				case 1: //1 = Left, update posn x - 1
-				 x = x - 1;
+				 --x;
 				break;
 				
 				case 2: //2 = Right, update posn x + 1
-				x = x + 1; 
+				 ++x; 
 				break;
 			}
 		}
@@ -47,7 +47,7 @@
 		// remove a life if it is passed true. 
 		void Player::removeLife(bool contact){
 			if(contact == true ){
-				lives = lives - 1;
+				--lives;
 			}
 		}		
 		
