@@ -36,6 +36,9 @@ int WiimoteBtns::Listen() {
             case 2:
             {
                 return 2; //Right
+            case 1:
+            	
+            	return 3; //Save and Quit.
             }
         }
     }

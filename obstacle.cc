@@ -36,8 +36,8 @@
 			} 	
 		}
 		
-		bool Obstacle::isColliding(int a, int b){
-			if( x == a && y == b){
+		bool Obstacle::isColliding(int a){
+			if( x == a && y == 15 ){
 				return true;
 			}else
 				return false;
