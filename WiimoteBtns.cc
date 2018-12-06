@@ -25,8 +25,8 @@ int WiimoteBtns::Listen() {
     read(fd, buffer, 32);
 
     // Extract code (byte 10) and value (byte 12) from packet
-    code = buffer[10];
-    value = buffer[12];
+    int code = buffer[10];
+    int value = buffer[12];
     if (value == 1){
         switch(code){
             case 103:

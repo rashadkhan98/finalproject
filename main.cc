@@ -6,7 +6,7 @@
 #include "gamemap.h"
 #include "WiimoteBtns.h"
 
-void runGame(Player a, GameMap b);
+void runGame(Player plyr, GameMap gm, WiimoteBtns wii);
 
 int main(){
 
@@ -23,12 +23,12 @@ int main(){
 
 	// run in while alive? loop
 
-	runGame(player1, currentgame);
+	runGame(player1, currentgame, wii);
 
 }
 
-void runGame(Player plyr, GameMap gm){
-	while(a.isAlive()){
+void runGame(Player plyr, GameMap gm, WiimoteBtns wii){
+	while(plyr.isAlive()){
 		usleep(100000);
 		int btn = wii.Listen();
 		//Generate initial map.
