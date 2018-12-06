@@ -9,7 +9,7 @@ class WiimoteBtns{
 	public:
 		WiimoteBtns();
 		~WiimoteBtns();
-		void Run();
+		int Listen();
 		void ButtonEvent(int code, int value);
 };
 #endif

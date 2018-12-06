@@ -1,10 +1,10 @@
 all: racegame
 
-racegame: main.o player.o gamemap.o
-	g++ main.o player.o gamemap.o -o racegame
+racegame: main.o player.o gamemap.o WiimoteBtns.o
+	g++ main.o player.o gamemap.o WiimoteBtns.o -o racegame
 
-main.o: main.cc player.h gamemap.h
-	g++ -g -Wall -c main.cc player.h gamemap.h
+main.o: main.cc player.h gamemap.h WiimoteBtns.h
+	g++ -g -Wall -c main.cc player.h gamemap.h WiimoteBtns.h
 	
 player.o: player.cc player.h
 	g++ -g -Wall -c player.cc player.h
