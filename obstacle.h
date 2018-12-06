@@ -22,7 +22,7 @@ class Obstacle{
 		
 		// removeLife: Boolean -> int (update player) 
 		// remove a life if it is passed true. 
-		bool isColliding(int a, int b);
+		bool isColliding(int a);
 
 };
 

@@ -6,7 +6,12 @@ class Player{
 		int score;
 		int lives;
 	public:
-		
+		int getScore();
+
+		int getLives();
+			
+		void setScore(int s);
+	
 		void setFields( int a, int b, int c);
 		// moveCursor: output int int -> text @ cursor posn. 
 		// prints outpus at posn col, row of the terminal. 
@@ -27,7 +32,8 @@ class Player{
 		// isAlive?: none -> Boolean
 		// if lives > 0, returns true. else false. 
 		bool isAlive();
-
+		
+		int getx();
 };
 
 #endif

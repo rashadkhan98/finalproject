@@ -3,6 +3,19 @@
 #include <unistd.h>
 #include "player.h"
 
+
+int Player::getLives(){
+	return lives;
+}
+
+int Player::getScore(){
+	return score;
+}
+
+void Player::setScore(int s){
+	score= s;
+}
+
 void Player::setFields(int a, int b, int c) {
     x = a;
     score = b;
@@ -18,16 +31,20 @@ void Player::moveCursor(int col, int row) {
 // drawScore: int -> cout
 // Print the score,live count, and current posn of the player.
 void Player::drawPlayer(int y) {
-    moveCursor(0, 0);
+    moveCursor(10, 0);
     std::cout << "Score: " << score;
 
-    moveCursor(10, 0);
+    moveCursor(0, 0);
     std::cout << "Lives: " << lives;
 
     usleep(100);
     moveCursor(x, y);
     std::cout << "^";
 
+}
+
+int  Player::getx(){
+	return x;
 }
 
 // updatePos: Int -> Int

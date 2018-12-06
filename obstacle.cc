@@ -28,11 +28,11 @@
 		// Update x value based on switch input.  
 		void Obstacle::updatePos(int max){
 	
-			if(y < max){
+			if(y < --max){
 				y = y++;
 			}else{
-				y = 2;
-				x = (rand() % 16) + 1;	
+				y = 3;
+				x = (rand() % 16) + 2;	
 			} 	
 		}
 		

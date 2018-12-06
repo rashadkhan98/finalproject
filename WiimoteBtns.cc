@@ -7,7 +7,7 @@
 using namespace std;
 
 WiimoteBtns::WiimoteBtns() {
-    fd = open("/dev/input/event2", O_RDONLY);
+    fd = open("/dev/input/event2", O_RDONLY | O_NONBLOCK);
     if (fd == -1) {
         cerr << "Error: Could not open event file - forgot sudo?\n";
         exit(1);
@@ -22,9 +22,7 @@ int WiimoteBtns::Listen() {
 
     // Read a packet of 32 bytes from Wiimote
     char buffer[32];
-    read(fd, buffer, 32);
-
-    // Extract code (byte 10) and value (byte 12) from packet
+	read(fd, buffer, 32);
     int code = buffer[10];
     int value = buffer[12];
     if (value == 1){
@@ -40,8 +38,11 @@ int WiimoteBtns::Listen() {
             	
             	return 3; //Save and Quit.
             }
+	    default:
+		return 0; //keeps game running, doesn't pass
         }
-    }
+	} 
+	return 0;
 
     // Print them
     //ButtonEvent(code, value);

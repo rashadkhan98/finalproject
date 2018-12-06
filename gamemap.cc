@@ -40,3 +40,9 @@
 				std::cout<<"|                 |";
 		}
 	}
+
+	void GameMap::drawControls(){
+	moveCursor(0, 20);
+	std::cout<< "Press D Pad Arrow closest to the top to"<<"\n";
+	std::cout<< "Move Left, Press 2 to Move Right. Press 1 To Quit" <<"\n";
+	}
