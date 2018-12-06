@@ -24,7 +24,7 @@ void Player::drawPlayer(int y) {
     moveCursor(10, 0);
     std::cout << "Lives: " << lives;
 
-    usleep(10000);
+    usleep(100);
     moveCursor(x, y);
     std::cout << "^";
 
@@ -36,18 +36,27 @@ void Player::updatePos(int sw) {
     switch (sw) {
         case 1: //1 = Left, update posn x - 1
         {
-            --x;
-            //usleep(10000);
-            //std::cout << "\n\n\n\n\n\n";
-            break;
+         if( x > 3){
+		 --x;
+	 }else{ 
+		x = 2;
+ 	 }
+            
+          break;
 
         }
 
         case 2: //2 = Right, update posn x + 1
         {
+	if(x < 18){
             ++x;
-            break;
-        }
+        }else{
+	    x = 18;
+	}
+	
+	break;
+	}
+	 
     }
 
     std::cout << "\n\n\n\n\n\n";
