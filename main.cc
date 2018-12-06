@@ -35,7 +35,7 @@ void runGame(Player plyr, GameMap gm){
 		gm.drawMap();
 		//Generate player
 
-		plyr.removeLife(true); //replace with check if obstacles values are the same.
+		//plyr.removeLife(true); //replace with check if obstacles values are the same.
 		plyr.drawPlayer(15);
 
 		plyr.updatePos(btn); //get input from buttons.
