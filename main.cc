@@ -14,7 +14,7 @@ void runMainMenu(WiimoteBtns wii, GameMap gm, Player plyr);
 void runEndScreen(Player plyr, GameMap gm);
 
 int main(){
-	srand(time( NULL) );
+	srand(time( NULL) ); //seed the time so the numbers will be random 
 	
 	int count = 0;
 	WiimoteBtns wii;
@@ -25,7 +25,7 @@ int main(){
 	currentgame.setbool(true);
 	
 	Obstacle obs1;
-	obs1.setFields(((rand() % 16) + 1), 3 );
+	obs1.setFields(((rand() % 16) + 1), 3 );	//make the obstacles have random x values1
 	Obstacle obs2;
 	obs2.setFields(((rand() % 16) + 1), 3 );
 	Obstacle obs3;
@@ -113,8 +113,7 @@ void runGame(Player plyr, GameMap gm, WiimoteBtns wii, Obstacle obs1, Obstacle o
 		obs3.drawObstacle();
 		obs4.drawObstacle();
 		if(btn == 3 ){
-			//save
-			plyr.setFields(9,0,0);
+			plyr.setFields(9,0,0); //set lives to 0 to end the game. 
 		}else {	
 		plyr.updatePos(btn); //get input from buttons.
 		obs1.updatePos(gm.getlength());
@@ -122,7 +121,7 @@ void runGame(Player plyr, GameMap gm, WiimoteBtns wii, Obstacle obs1, Obstacle o
 		obs3.updatePos(gm.getlength());
 		obs4.updatePos(gm.getlength());
 		counter++;
-		plyr.setScore(counter);
+		plyr.setScore(counter);	//update the score based on cycles past while alive. 
 		}
 		
 	}

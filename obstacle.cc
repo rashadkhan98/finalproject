@@ -7,25 +7,24 @@
 
 
 	
-		// moveCursor: output int int -> text @ cursor posn. 
-		// prints outpus at posn col, row of the terminal. 
+	
+		// moves cursor to posn col, row of the terminal. 
 		void Obstacle::moveCursor(int col, int row){
 		std::cout << "\033[" << row << ";" << col << "H";
 		}
 		
-		// drawScore: int -> cout
-		// Print the score,live count, and current posn of the player. 
+	
+		// draw the obstacle at its current position
 		void Obstacle::drawObstacle(){
 			moveCursor( x, y);
 			std::cout<<"O";
 		}
-		
+		// set x and y positions of the obstacle object.
 		void Obstacle::setFields(int a, int b){
 			x = a;
 			y = b;
 		}
-		// updatePos: Int -> Int 
-		// Update x value based on switch input.  
+		// Update x and y value based on previous value.  
 		void Obstacle::updatePos(int max){
 	
 			if(y < --max){
@@ -36,6 +35,7 @@
 			} 	
 		}
 		
+		// return true if x value is same as the player when their y values are the same
 		bool Obstacle::isColliding(int a){
 			if( x == a && y == 15 ){
 				return true;

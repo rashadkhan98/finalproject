@@ -3,33 +3,34 @@
 #include <unistd.h>
 #include "player.h"
 
-
+//returns the player's pvt lives count.
 int Player::getLives(){
 	return lives;
 }
 
+//return the player's pvt score count.
 int Player::getScore(){
 	return score;
 }
 
+//sets the player's pvt score count to the input int.
 void Player::setScore(int s){
 	score= s;
 }
 
+//set all pvt fields of the player object.
 void Player::setFields(int a, int b, int c) {
     x = a;
     score = b;
     lives = c;
 }
 
-// moveCursor: output int int -> text @ cursor posn.
-// prints outpus at posn col, row of the terminal.
+// prints output at posn col, row of the terminal.
 void Player::moveCursor(int col, int row) {
     std::cout << "\033[" << row << ";" << col << "H";
 }
 
-// drawScore: int -> cout
-// Print the score,live count, and current posn of the player.
+// Print the score, live count, and current posn of the player.
 void Player::drawPlayer(int y) {
     moveCursor(10, 0);
     std::cout << "Score: " << score;
@@ -42,7 +43,7 @@ void Player::drawPlayer(int y) {
     std::cout << "^";
 
 }
-
+//returns the player's pvt x value.
 int  Player::getx(){
 	return x;
 }
@@ -53,11 +54,11 @@ void Player::updatePos(int sw) {
     switch (sw) {
         case 1: //1 = Left, update posn x - 1
         {
-         if( x > 3){
+         if( x > 3){ //sets the bounds
 		 --x;
-	 }else{ 
-		x = 2;
- 	 }
+		 }else{ 
+			x = 2;
+	 	 }
             
           break;
 
@@ -65,7 +66,7 @@ void Player::updatePos(int sw) {
 
         case 2: //2 = Right, update posn x + 1
         {
-	if(x < 18){
+	if(x < 18){	//sets the bounds.
             ++x;
         }else{
 	    x = 18;
@@ -76,7 +77,7 @@ void Player::updatePos(int sw) {
 	 
     }
 
-    std::cout << "\n\n\n\n\n\n";
+    std::cout << "\n\n\n\n\n\n"; //move cursor away from the map.
 }
 
 // removeLife: Boolean -> int (update player)
@@ -87,7 +88,7 @@ void Player::removeLife(bool contact) {
     }
 }
 
-// isAlive?: none -> Boolean
+// isAlive: none -> Boolean
 // if lives > 0, returns true. else false.
 bool Player::isAlive() {
     if (lives > 0) {

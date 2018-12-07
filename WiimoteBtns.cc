@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//construct the object. read in data from event2, O_NONBLOCK so it reads nonblocking.
 WiimoteBtns::WiimoteBtns() {
     fd = open("/dev/input/event2", O_RDONLY | O_NONBLOCK);
     if (fd == -1) {
@@ -13,11 +14,11 @@ WiimoteBtns::WiimoteBtns() {
         exit(1);
     }
 }
-
+//deconstruct the object
 WiimoteBtns::~WiimoteBtns() {
     close(fd);
 }
-
+//listen for the next button press, if not given a press, still reads packet so it doesn't block.
 int WiimoteBtns::Listen() {
 
     // Read a packet of 32 bytes from Wiimote
@@ -43,11 +44,8 @@ int WiimoteBtns::Listen() {
         }
 	} 
 	return 0;
-
-    // Print them
-    //ButtonEvent(code, value);
 }
-
+//print button code and value, for debugging information. 
 void WiimoteBtns::ButtonEvent(int code, int value) {
     cout << "Event code = " << code << " value = " << value << endl;
 }
